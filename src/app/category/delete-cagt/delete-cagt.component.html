@@ -1,0 +1,124 @@
+<!-- <div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+    <h4 class="modal-title pull-right">{{title}}</h4> -->
+    <!-- <button type="button" class="btn btn-primary" >{{title}}</button>  -->
+    <!-- <button type="button" class="pull-right btn btn-danger" aria-label="Close" rounded="true" (click)="bsModalRef.hide()">
+       <span aria-hidden="true">&times;</span>
+          Get By ID <h6 aria-hidden="true">&times;</h6>
+    </button> 
+   <div class="col-sm-2"></div>
+    <span class="space-width"></span>
+   <input type="text"  class="form-control inputbox" #deptId aria-label="small" aria-describedby="inputGroup-sizing-sm"
+   placeholder="Enter Department ID" >
+
+   <span class="space-width"></span>
+   <button type="button" class="btn btn-primary" (click) ="OnInput(deptId.value)">Submit</button> 
+</div>
+<table class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>CurrentPageSize</th>
+            <th>PageNo</th>
+            <th>Message</th>
+            <th>RequestName</th>
+            <th>Token</th>
+            <th>TotalCount</th>
+            <th>IsError</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{deleteCategory.currentPageSize}}</td>
+            <td>{{deleteCategory.pageNo}}</td>
+            <td>{{deleteCategory.message}}</td>
+            <td>{{deleteCategory.requestName}}</td>
+            <td>{{deleteCategory.token}}</td>
+            <td>{{deleteCategory.totalCount}}</td>
+            <td>{{deleteCategory.isError}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>HQID</th>
+            <th>Department ID</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>DbtimeStamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="deleteCategory && deleteCategory.result">
+            <td>{{deleteCategory.result.id}}</td>
+            <td>{{deleteCategory.result.hqid}}</td>
+            <td>{{deleteCategory.result.departmentId}}</td>
+            <td>{{deleteCategory.result.name}}</td>
+            <td>{{deleteCategory.result.code}}</td>
+            <td>{{deleteCategory.result.dbtimeStamp}}</td>
+        </tr>
+    </tbody>
+</table>
+ -->
+
+ <!-- <div *ngIf="showAlert">
+    <h3>{{showAlertMessage}}</h3>
+</div> -->
+<!-- <div class="input-group input-group-sm mb-3">
+
+    <span class="space-width"></span>
+   <button type="button" class="btn btn-primary" (click) ="OnInput(deptId.value)">Submit</button> 
+</div> -->
+<div class="container">
+    <table class="table table-hover" *ngIf="showResult">
+        <thead>
+            <tr>
+                <th>currentPageSize</th>
+                <th>pageNo</th>
+                <th>message</th>
+                <th>requestName</th>
+                <th>token</th>
+                <th>isError</th>
+                <th>totalCount</th>
+                <th>hasMoreRecords</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{deleteCategory.currentPageSize}}</td>
+                <td>{{deleteCategory.pageNo}}</td>
+                <td>{{deleteCategory.message}}</td>
+                <td>{{deleteCategory.requestName}}</td>
+                <td>{{deleteCategory.token}}</td>
+                <td>{{deleteCategory.totalCount}}</td>
+                <td>{{deleteCategory.isError}}</td>
+            </tr>
+        </tbody>
+    
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>HQId</th>
+                <th>ID</th>
+                <th>Department ID</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>DbtimeStamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="deleteCategory && deleteCategory.result">
+                <td>{{deleteCategory.result.id}}</td>
+                <td>{{deleteCategory.result.hqid}}</td>
+                <td>{{deleteCategory.result.departmentId}}</td>
+                <td>{{deleteCategory.result.name}}</td>
+                <td>{{deleteCategory.result.code}}</td>
+                <td>{{deleteCategory.result.dbtimeStamp}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button style=" border-radius: 15px;margin: 2px auto; display: block;width: 100px;" class="btn btn-primary" type="submit"  (click)="closeClick()">Back</button>
+</div>
+

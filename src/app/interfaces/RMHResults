@@ -1,0 +1,13 @@
+export interface  RMResult
+{
+    calculatedBusinessDays:number,
+    calculatedpenalty:number,
+    currencyCode:string,
+    status:string,
+    isOk:boolean
+}
+
+
+export interface isUserLoggedIn{
+    userRole:string;
+}

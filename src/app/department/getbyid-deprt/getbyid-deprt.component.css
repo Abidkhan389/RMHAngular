@@ -1,0 +1,12 @@
+.popover{
+    max-width: 100%; /* Max Width of the popover (depending on the container!) */
+}
+.inputbox{
+    max-width: 400px !important;
+}
+.space-width{
+    width: 10px;
+}
+.space-width2{
+    width: 771px;
+}

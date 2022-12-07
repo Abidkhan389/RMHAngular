@@ -1,0 +1,104 @@
+<div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+    <button type="button" class="pull-right btn btn-danger " aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #orderentrypagenum aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Number">
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #orderentrypagesize aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Size">
+    <span class="space-width"></span>
+     <input type="text" class="form-control" #orderentryorderid aria-label="small" aria-describedby="inputGroup-sizing-sm"
+        placeholder="Enter Order ID" >
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #orderentryitemid aria-label="small" aria-describedby="inputGroup-sizing-sm"
+        placeholder="Enter Item ID" >
+    <span class="space-width"></span> 
+    <button type="button" class="btn btn-primary" (click)  ="OnInput(orderentrypagenum.value,orderentrypagesize.value,orderentryorderid.value,orderentryitemid.value)">Submit</button> 
+   <span class="space-width"></span>
+</div>
+<table  class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>CurrentPageSize</th>
+            <th>PageNo</th>
+            <th>Message</th>
+            <th>RequestName</th>
+            <th>Token</th>
+            <th>TotalCount</th>
+            <th>IsError</th>
+            <th>HasMoreRecords</th>
+        </tr>
+    </thead>
+  <tbody>
+      <tr>
+          <td>{{orderList.currentPageSize}}</td>
+          <td>{{orderList.pageNo}}</td>
+          <td>{{orderList.message}}</td>
+          <td>{{orderList.requestName}}</td>
+          <td>{{orderList.token}}</td>
+          <td>{{orderList.totalCount}}</td>
+          <td>{{orderList.isError}}</td>
+          <td>{{orderList.hasMoreRecords}}</td>
+      </tr>
+  </tbody>
+</table>
+<table  class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>Cost</th>
+            <th>Store ID</th>
+            <th>ID</th>
+            <th>Order ID</th>
+            <th>Item ID</th>
+            <th>Full Price</th>
+            <th>Price Source</th>
+            <th>Price</th>
+            <th>Quantity OnOrder</th>
+            <th>SalesRepId</th>
+            <th>Taxable</th>
+            <th>DetailId</th>
+            <th>SalesRepId</th>
+            <th>SalesRepId</th>
+            <th>SalesRepId</th>
+            <th>Description</th>
+            <th>LastUpdated</th>
+            <th>Comment</th>
+            <th>DiscountReasonCodeId</th>
+            <th>ReturnReasonCodeId</th>
+            <th>TaxChangeReasonCodeId</th>
+            <th>TransactionTime</th>
+            <th>IsAddMoney</th>
+            <th>VoucherId</th>
+        </tr>
+    </thead>
+   <tbody>
+       <tr   *ngFor="let orderentrytdata of orderList.result">
+          <td>{{orderentrytdata.cost}}</td>
+          <td>{{orderentrytdata.storeId}}</td>
+          <td>{{orderentrytdata.id}}</td>
+          <td>{{orderentrytdata.orderId}}</td>
+          <td>{{orderentrytdata.itemId}}</td>
+          <td>{{orderentrytdata.fullPrice}}</td>
+          <td>{{orderentrytdata.priceSource}}</td>
+          <td>{{orderentrytdata.price}}</td>
+          <td>{{orderentrytdata.quantityOnOrder}}</td>
+          <td>{{orderentrytdata.salesRepId}}</td>
+          <td>{{orderentrytdata.taxable}}</td>
+          <td>{{orderentrytdata.detailId}}</td>
+          <td>{{orderentrytdata.description}}</td>
+          <td>{{orderentrytdata.quantityRtd}}</td>
+          <td>{{orderentrytdata.lastUpdated}}</td>
+          <td>{{orderentrytdata.comment}}</td>
+          <td>{{orderentrytdata.discountReasonCodeId}}</td>
+          <td>{{orderentrytdata.returnReasonCodeId}}</td>
+          <td>{{orderentrytdata.taxChangeReasonCodeId}}</td>
+          <td>{{orderentrytdata.transactionTime}}</td>
+          <td>{{orderentrytdata.isAddMoney}}</td>
+          <td>{{orderentrytdata.voucherId}}</td>
+       </tr>
+   </tbody>
+</table>
+

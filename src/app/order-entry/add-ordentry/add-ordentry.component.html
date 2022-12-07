@@ -1,0 +1,165 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" integrity="sha512-f0tzWhCwVFS3WeYaofoLWkTP62ObhewQ1EZn65oSYDZUg1+CyywGKkWzm8BxaJj5HGKI72PnMH9jYyIFz+GH7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head> -->
+<!-- <body> -->
+    <div *ngIf="showAlert">
+        <h3>{{showAlertMessage}}</h3>
+    </div>
+    <form  style="border:teal; border-width:1px; border-style:solid; border-radius: 3px; " [formGroup]="OrderEntry_create_Form" (ngSubmit)="onCreateSubmit()" > 
+        <div  class="panel panel-primary " >
+            <div style="background-color: blueviolet; text-align: center; height: 40px;" class="panel-heading">
+                <h3 class="panel-title" style="color: whitesmoke;">Create OrderEntry</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Cost">Cost</label>
+                    <div class="col-sm-11">
+                        <input style="border-width: 2px;" id="Cost" formControlName="Cost" type="text" class="form-control" placeholder="Enter Cost"> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="StoreId">StoreId</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="StoreId" formControlName="StoreId" type="text" class="form-control" placeholder="Enter Store Id">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="OrderId">OrderId</label>
+                    <div  class="col-sm-11">
+                        <input  style="border-width: 2px;" id="OrderId" formControlName="OrderId" type="text" class="form-control" placeholder="Enter Order Id">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="ItemId">ItemId</label>
+                    <div  class="col-sm-11">
+                        <input  style="border-width: 2px;" id="ItemId" formControlName="ItemId" type="text" class="form-control" placeholder="Enter Item ID">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="FullPrice">FullPrice</label>
+                    <div  class="col-sm-11">
+                        <input  style="border-width: 2px;" id="FullPrice" formControlName="FullPrice" type="text" class="form-control" placeholder="Enter Full Price ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="PriceSource">PriceSource</label>
+                    <div  class="col-sm-11">
+                        <input  style="border-width: 2px;" id="PriceSource" formControlName="PriceSource" type="text" class="form-control" placeholder="Enter Price Source ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Price">Price</label>
+                    <div  class="col-sm-11">
+                        <input  style="border-width: 2px;" id="Price" formControlName="Price" type="text" class="form-control" placeholder="Enter Price ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="QuantityOnOrder">QuantityOnOrder</label>
+                    <div  class="col-sm-11">
+                        <input  style="border-width: 2px;" id="QuantityOnOrder" formControlName="QuantityOnOrder" type="text" class="form-control" placeholder="Enter Quantity On Order">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="SalesRepId">SalesRepId</label>
+                    <div  class="col-sm-11">
+                        <input  style="border-width: 2px;" id="SalesRepId" formControlName="SalesRepId" type="text" class="form-control" placeholder="Enter SalesRepId ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Taxable">Taxable</label>
+                    <div  class="col-sm-11">
+                        <input  style="border-width: 2px;" id="Taxable" formControlName="Taxable" type="text" class="form-control" placeholder="Enter Taxable ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="DetailId">DetailId</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="DetailId" formControlName="DetailId" type="text" class="form-control" placeholder="Enter Detail ID ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Description">Description</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="Description" formControlName="Description" type="text" class="form-control" placeholder="Enter Description ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="QuantityRtd">QuantityRtd</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="QuantityRtd" formControlName="QuantityRtd" type="text" class="form-control" placeholder="Enter QuantityRtd ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="LastUpdated">LastUpdated</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="picker" formControlName="LastUpdated" type="text" class="form-control" placeholder="Pick LastUpdated ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="Comment">Comment</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="Comment" formControlName="Comment" type="text" class="form-control" placeholder="Enter Comment ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="DiscountReasonCodeId">DiscountReasonCodeId</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="DiscountReasonCodeId" formControlName="DiscountReasonCodeId" type="text" class="form-control" placeholder="Enter DiscountReasonCodeId ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="TaxChangeReasonCodeId">TaxChangeReasonCodeId</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="TaxChangeReasonCodeId" formControlName="TaxChangeReasonCodeId" type="text" class="form-control" placeholder="Enter TaxChangeReasonCodeId ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="TransactionTime">TransactionTime</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="TransactionTime" formControlName="TransactionTime" type="text" class="form-control" placeholder="Pick TransactionTime ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="IsAddMoney">IsAddMoney</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="IsAddMoney" formControlName="IsAddMoney" type="text" class="form-control" placeholder="Enter IsAddMoney ">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="VoucherId">VoucherId</label>
+                    <div class="col-sm-11">
+                        <input  style="border-width: 2px;" id="VoucherId" formControlName="VoucherId" type="text" class="form-control" placeholder="Enter VoucherId ">
+                    </div>
+                </div>
+            </div>
+            <span class="space-width2"></span>
+            <div class="panel-footer">
+                <button style=" border-radius: 15px;margin: 2px auto; display: block;width: 100px;" class="btn btn-primary" type="submit">Create</button>
+                <button style=" border-radius: 15px;margin: 2px auto; display: block;width: 100px;" class="btn btn-danger" type="submit"  (click)="closeClick()">Cancel</button>
+            </div>
+        </div>
+       
+    </form>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script>
+        $('#picker').datetimepicker({
+            timepicker:false,
+            datepicker:true,
+            format:'y-m-d', //formatdate
+            value:'2021-8-30' //defaultdate
+        })
+    </script> -->
+<!-- </body>
+</html> -->
+
+
+
+

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css"  rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+
+</head>
+<body>
+    <div *ngIf="showAlert">
+        <h3>{{showAlertMessage}}</h3>
+    </div>
+    <form  style="border:rgb(165, 154, 154); border-width:2px; border-style:solid; border-radius: 3px; size: inherit;" [formGroup]="Order_Create_Form" (ngSubmit)="onCreateSubmit()" > 
+        <div  class="panel panel-primary " >
+            <div style="background-color: rgb(165, 154, 154); text-align: center; height: 40px;" class="panel-heading">
+                <h3 class="panel-title" style="color: whitesmoke;">Create Order</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                        <span class="space-width"></span>
+                        <label class="col-sm-1 control-label mt-2" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="StoreID"><h6>StoreID</h6></label>
+                        <div class="col-sm-4 mt-2">
+                            <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white; "  id="StoreID" formControlName="StoreID" type="text" class="form-control" placeholder="Enter StoreID"> 
+                        </div>
+                   
+                        <span class="space-width"></span>
+                        <label class="col-sm-1 control-label mt-2" style="background-color: rgb(165, 154, 154); border-radius: 10px; text-align: center; height: auto; " for="ID"><h6>ID</h6></label>
+                        <div class="col-sm-5 mt-2">
+                            <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="ID" formControlName="ID" type="text" class="form-control" placeholder="Enter ID">
+                        </div>
+                </div>
+                <div class="row">
+                    
+                        <span class="space-width"></span>
+                        <label class="col-sm-1 control-label mt-2" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="closed"><h6>Closed</h6></label>
+                        <div class="col-sm-4 mt-2">
+                            <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" type="radio" formControlName="closed" id="true" name="closed" value="True">
+                            <label for="true">True</label>
+                            <span class="space-width"></span>
+                            <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" type="radio" formControlName="closed" id="flase" name="closed" value="False">
+                            <label for="flase">False</label>
+                        </div>
+                   
+                        <span class="space-width"></span>
+                        
+                        <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="Time"><h6>Time&Date:</h6></label>
+                        <div class="col-sm-5 mt-2">
+                            <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="Time" formControlName="Time" type="date" class="form-control"  name="Time" placeholder="Enter Time and Date">
+                        </div>
+                   
+                </div>
+                <!-- <div class="form-group">
+                       <label class="col-sm-2 control-label" for="closed">closed</label>
+                    <div class="col-sm-12">
+                        <input style="border-width: 2px;" type="radio" formControlName="closed" id="true" name="closed" value="True">
+                        <label for="true">True</label>
+                        <span class="space-width"></span>
+                        <input style="border-width: 2px;" type="radio" formControlName="closed" id="flase" name="closed" value="False">
+                        <label for="flase">False</label>
+                    </div>
+                </div> -->
+                
+                <div class="row">
+
+                    <span class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="Type"><h6>Type:</h6></label>
+                    <div class="col-sm-4 mt-2">
+                        <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="Type" formControlName="Type" type="text" class="form-control"  placeholder="Enter type Number ">
+                    </div>
+
+                    <span class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="Comment"><h6><h6>Comment:</h6></h6></label>
+                    <div class="col-sm-5 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="Comment" formControlName="Comment" type="text" class="form-control"  placeholder="Enter Comment">
+                    </div>
+
+                </div>  
+
+                <div class="row">
+
+                    <span class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="CustomerID"><h6>CustomerID:</h6></label>
+                    <div class="col-sm-4 mt-2">
+                        <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="CustomerID" formControlName="CustomerID" type="text" class="form-control"  placeholder="Enter CustomerID">
+                    </div>
+
+                    <span class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="ShipToId"><h6>ShipToId:</h6></label>
+                    <div class="col-sm-5 mt-2">
+                        <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="ShipToId" formControlName="ShipToId" type="text" class="form-control"  placeholder="Enter Ship To ID">
+                    </div>
+
+                </div>  
+
+                <div class="row">
+                    <span class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-2" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px; width: auto;  " for="depositOverride"><h6>DepositOverride:</h6></label>
+                    <span class="space-width"></span>
+                    <div class="col-sm-3 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" type="radio" formControlName="depositOverride" id="true" name="depositOverride" value="True">
+                        <label for="true">True</label>
+                        <span class="space-width"></span>
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" type="radio" formControlName="depositOverride" id="flase" name="depositOverride" value="False">
+                        <label for="flase">False</label>
+                    </div>
+                    <span class="space-width"></span>
+                    <span class="space-width"></span>
+                    
+                    <label class="col-sm-1 control-label" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="deposit"><h6>Deposit:</h6></label>
+                    <div class="col-sm-5">
+                        <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="deposit" formControlName="deposit" type="text" class="form-control"  placeholder="Enter deposit ID">
+                    </div>
+                </div>
+                <div class="row">
+
+                    <span class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="tax"><h6>Tax:</h6></label>
+                    <div class="col-sm-4 mt-2">
+                        <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="tax" formControlName="tax" type="text" class="form-control"  placeholder="Enter tax ">
+                    </div>
+                    <span class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="total"><h6>Total:</h6></label>
+                    <div class="col-sm-5 mt-2">
+                        <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="total" formControlName="total" type="text" class="form-control"  placeholder="Enter total Amount ">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <span  class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="lastUpdated"><h6>lastUpdated:</h6></label>
+                    <div class="col-sm-4 mt-2">
+                        <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="lastUpdated" formControlName="lastUpdated" type="date" class="form-control"  placeholder="Enter lastUpdated">
+                        
+                    </div>
+                    <span  class="space-width"></span>
+                    <label class="col-sm-2 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="expirationOrDueDate"><h6>ExpirationOrDueDate:</h6></label>
+                    <div class="col-sm-4 mt-2">
+                        <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="expirationOrDueDate" formControlName="expirationOrDueDate" type="date" class="form-control"  placeholder="Enter expirationOrDueDate">
+                        
+                    </div>
+
+                </div>
+               <div class="row">
+                    <span  class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-2" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="taxable"><h6>Taxable:</h6></label>
+                    <div class="col-sm-4 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" type="radio" formControlName="taxable" id="true" name="taxable" value="True">
+                        <label for="true">True</label>
+                        <span class="space-width"></span>
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" type="radio" formControlName="taxable" id="flase" name="taxable" value="False">
+                        <label for="flase">False</label>
+                    </div>
+                    <span  class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="salesRepId"><h6>SalesRepId:</h6></label>
+                    <div class="col-sm-5 mt-2">
+                        <input  style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="salesRepId" formControlName="salesRepId" type="text" class="form-control"  placeholder="Enter sales RepId ">
+                    </div>
+               </div>
+                <div class="row">
+                    <span  class="space-width"></span>
+                    <label class="col-sm-2 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="referenceNumber"><h6>ReferenceNumber:</h6></label>
+                    <div class="col-sm-3 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="referenceNumber" formControlName="referenceNumber" type="text" class="form-control" placeholder="Enter Reference Number">
+                    </div>
+                    <span  class="space-width"></span>
+                    <label class="col-sm-2 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="shippingChargeOnOrder"><h6>shippingChargeOnOrder:</h6></label>
+                    <div class="col-sm-4 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="shippingChargeOnOrder" formControlName="shippingChargeOnOrder" type="text" class="form-control" placeholder="Enter shippingChargeOnOrder Number">
+                    </div>
+                </div>
+                <div class="row">
+                    <span  class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3"  style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  "for="shippingChargeOverride"><h6>shippingChargeOverride:</h6></label>
+                   <div class="col-sm-1"></div>
+                    <div class="col-sm-3 mt-3">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" type="radio" formControlName="shippingChargeOverride" id="true" name="shippingChargeOverride" value="True">
+                        <label for="true">True</label>
+                        <span class="space-width"></span>
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" type="radio" formControlName="shippingChargeOverride" id="flase" name="shippingChargeOverride" value="False">
+                        <label for="flase">False</label>
+                    </div>
+                    <span  class="space-width"></span>
+                    <label class="col-sm-2 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="shippingServiceId"><h6>ShippingServiceId:</h6></label>
+                    <div class="col-sm-4 mt-3">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="shippingServiceId" formControlName="shippingServiceId" type="text" class="form-control" placeholder="Enter shippingService Id">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <span  class="space-width"></span>
+                    <label class="col-sm-2 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="shippingTrackingNumber"><h6>ShippingTrackingNumber:</h6></label>
+                    <div class="col-sm-3 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="shippingTrackingNumber" formControlName="shippingTrackingNumber" type="text" class="form-control" placeholder="Enter shippingTracking Number">
+                    </div>
+                    <span  class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="shippingNotes"><h6>ShippingNotes</h6></label>
+                    <div class="col-sm-5 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="shippingNotes" formControlName="shippingNotes" type="text" class="form-control" placeholder="Enter shipping Notes">
+                    </div>
+                </div>
+                <div class="row">
+                    <span  class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px; width: 125px;  " for="reasonCodeId"><h6>ReasonCodeId:</h6></label>
+                    <div class="col-sm-4 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="reasonCodeId" formControlName="reasonCodeId" type="text" class="form-control" placeholder="Enter Reason Code Id ">
+                    </div>
+                    <span  class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="exchangeId"><h6>ExchangeId:</h6></label>
+                    <div class="col-sm-5 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="exchangeId" formControlName="exchangeId" type="text" class="form-control" placeholder="Enter Exchange Id ">
+                    </div>
+                </div>
+                <div class="row">
+                    <span  class="space-width"></span>
+                    <label class="col-sm-1 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="channelType"><h6>ChannelType:</h6></label>
+                    <div class="col-sm-4 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="channelType" formControlName="channelType" type="text" class="form-control" placeholder="Enter Channal Type number">
+                    </div>
+                    <span  class="space-width"></span>
+                    <label class="col-sm-3 control-label mt-3" style="background-color: rgb(165, 154, 154); border-radius: 15px; text-align: center; height: auto; margin-top: 1px;  " for="defaultDiscountReasonCodeId mt-3"><h6>DefaultDiscountReasonCodeId:</h6></label>
+                    <div class="col-sm-3 mt-2">
+                        <input style="border-width: 2px; background-color: rgb(165, 154, 154); color: white;" id="defaultDiscountReasonCodeId" formControlName="defaultDiscountReasonCodeId" type="text" class="form-control" placeholder="Enter Default Discount Reason Code Id">  
+                    </div>
+                </div>
+            </div>
+            <span class="space-width2"></span>
+            <div class="panel-footer">
+                <button style=" border-radius: 15px;margin: 2px auto; display: block;width: 100px;" class="btn btn-primary" type="submit" >Create</button>
+                <button style=" border-radius: 15px;margin: 2px auto; display: block;width: 100px;" class="btn btn-danger" type="submit"  (click)="closeClick()">Close</button>
+            </div>
+        </div>
+       
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+

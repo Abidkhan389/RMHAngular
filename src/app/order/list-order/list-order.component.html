@@ -1,0 +1,83 @@
+<button type="button" class="btn btn-primary float-right m-2"
+data-bs-toggle="moal" data-bs-target="exampleModal" 
+ (click)="CreateClick()" 
+ data-backdrop="static" data-keyboard="false" style="border-radius: 10px;" >
+Add Order
+</button>
+
+<table class="table table-hover" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>storeId</th>
+            <th>Id</th>
+            <th>closed</th>
+            <th>time</th>
+            <th>type</th>
+            <th>comment</th>
+            <th>customerId</th>
+            <th>shipToId</th>
+            <th>depositOverride</th>
+            <th>deposit</th>
+            <th>tax</th>
+            <th>total</th>
+            <th>lastUpdated</th>
+            <th>expirationOrDueDate</th>
+            <th>taxable</th>
+            <th>salesRepId</th>
+            <th>referenceNumber</th>
+            <th>shippingChargeOnOrder</th>
+            <th>shippingChargeOverride</th>
+            <th>shippingServiceId</th>
+            <th>shippingTrackingNumber</th>
+            <th>shippingNotes</th>
+            <th>reasonCodeId</th>
+            <th>exchangeId</th>
+            <th>channelType</th>
+            <th>defaultDiscountReasonCodeId</th>
+            <th>defaultReturnReasonCodeId</th>
+            <th>defaultTaxChangeReasonCodeId</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Orderdata of OrderList">
+            <td>{{Orderdata.storeId}}</td>
+            <td>{{Orderdata.id}}</td>
+            <td>{{Orderdata.closed}}</td>
+            <td>{{Orderdata.time}}</td>
+            <td>{{Orderdata.type}}</td>
+            <td>{{Orderdata.comment}}</td>
+            <td>{{Orderdata.customerId}}</td>
+            <td>{{Orderdata.shipToId}}</td>
+            <td>{{Orderdata.depositOverride}}</td>
+            <td>{{Orderdata.deposit}}</td>
+            <td>{{Orderdata.tax}}</td>
+            <td>{{Orderdata.total}}</td>
+            <td>{{Orderdata.lastUpdated}}</td>
+            <td>{{Orderdata.expirationOrDueDate}}</td>
+            <td>{{Orderdata.taxable}}</td>
+            <td>{{Orderdata.salesRepId}}</td>
+            <td>{{Orderdata.referenceNumber}}</td>
+            <td>{{Orderdata.shippingChargeOnOrder}}</td>
+            <td>{{Orderdata.shippingChargeOverride}}</td>
+            <td>{{Orderdata.shippingServiceId}}</td>
+            <td>{{Orderdata.shippingTrackingNumber}}</td>
+            <td>{{Orderdata.shippingNotes}}</td>
+            <td>{{Orderdata.reasonCodeId}}</td>
+            <td>{{Orderdata.exchangeId}}</td>
+            <td>{{Orderdata.channelType}}</td>
+            <td>{{Orderdata.defaultDiscountReasonCodeId}}</td>
+            <td>{{Orderdata.defaultReturnReasonCodeId}}</td>
+            <td>{{Orderdata.defaultTaxChangeReasonCodeId}}</td>
+            <td>
+                <button type="button" class="btn btn-danger mr-1 mb-1">
+                    Delete
+                </button>
+                <button type="button" class="btn btn-primary mr-1 mb-1"> 
+                    Edit
+                </button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

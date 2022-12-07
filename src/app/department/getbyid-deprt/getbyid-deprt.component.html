@@ -1,0 +1,92 @@
+
+<!-- value{{departmentId}}: -->
+<!-- <div class="modal-header">
+    
+  </div> -->
+<div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+    <!-- <h4 class="modal-title pull-right">{{title}}</h4> -->
+    <!-- <button type="button" class="btn btn-primary" >{{title}}</button>  -->
+    <button type="button" class="pull-right btn btn-danger" aria-label="Close" rounded="true" (click)="bsModalRef.hide()">
+       <span aria-hidden="true">&times;</span>
+          <!-- Get By ID <h6 aria-hidden="true">&times;</h6> -->
+    </button>
+   <div class="col-sm-2"></div>
+    <span class="space-width"></span>
+   <input type="text"  class="form-control inputbox"  style="background-color: rgb(165, 154, 154); color: white;" #deptId aria-label="small" aria-describedby="inputGroup-sizing-sm"
+   placeholder="Enter Department ID" >
+
+   <span class="space-width"></span>
+   <button type="button" class="btn btn-primary" (click) ="OnInput(deptId.value)">Submit</button> 
+</div>
+  
+  <!-- <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+    </div>
+    <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+  </div> -->
+  
+  <!-- CurrentPageSize:{{DepartmentList.currentPageSize}}<br>
+  PageNo:{{DepartmentList.pageNo}}<br>
+  Message:{{DepartmentList.message}}<br>
+  RequestName:{{DepartmentList.requestName}}<br>
+  Token:{{DepartmentList.token}}<br>
+  TotalCount:{{DepartmentList.totalCount}}<br>
+  IsError:{{DepartmentList.isError}}<br> -->
+<table class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>CurrentPageSize</th>
+            <th>PageNo</th>
+            <th>Message</th>
+            <th>RequestName</th>
+            <th>Token</th>
+            <th>TotalCount</th>
+            <th>IsError</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{DepartmentList.currentPageSize}}</td>
+            <td>{{DepartmentList.pageNo}}</td>
+            <td>{{DepartmentList.message}}</td>
+            <td>{{DepartmentList.requestName}}</td>
+            <td>{{DepartmentList.token}}</td>
+            <td>{{DepartmentList.totalCount}}</td>
+            <td>{{DepartmentList.isError}}</td>
+            
+        </tr>
+    </tbody>
+</table>
+
+
+<table class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hqid</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>DbtimeStamp</th>
+            
+        </tr>        
+    </thead>
+    <tbody>
+        <tr *ngIf="DepartmentList && DepartmentList.result">
+            <td>{{DepartmentList.result.id}}</td>
+            <td>{{DepartmentList.result.hqid}}</td>
+            <td>{{DepartmentList.result.code}}</td>
+            <td>{{DepartmentList.result.name}}</td>
+            <td>{{DepartmentList.result.dbtimeStamp}}</td>
+            <!-- <td>
+                <button type="button" class="btn btn-light mr-1">
+                    Edit
+                </button>
+                <button type="button" class="btn btn-light mr-1">
+                    Delete
+                </button>
+            </td> -->
+        </tr>
+    </tbody>
+</table>

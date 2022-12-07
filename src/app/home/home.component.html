@@ -1,0 +1,33 @@
+
+    <h3 class="d-flex justify-content-center">RMH Merchandising</h3>
+    <h5 class="d-flex justify-content-center">Management Portal </h5>
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: rgb(165, 154, 154); border-radius: 15px;">
+      <ul class="navbar-nav">
+        <!-- <li class="nav-item">
+          <button routerLink="department"
+            class="m-1 btn btn-primary" style="border-radius: 15px;">Department</button
+        </li> -->
+        <li class="nav-item">
+          <button  routerLink="category"
+            class="m-1 btn btn-primary" style="border-radius: 15px;" >Category</button>
+        </li>
+        <li class="nav-item">
+          <button  routerLink="orderentry"
+            class="m-1 btn btn-primary" style="border-radius: 15px;" >Order Entry</button>
+        </li>
+        <li class="nav-item">
+          <button  routerLink="Order"
+            class="m-1 btn btn-primary " style="border-radius: 10px;" Button>Order</button>
+        </li>
+        <span class="space-width2"></span>
+        <a [routerLink]="['/login']">
+          <Button type="button" class="m-1 mt-1 pull-right btn btn-danger" style="border-radius: 10px;">LogOut</Button>
+        </a>
+
+      </ul>
+    </nav>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+
+

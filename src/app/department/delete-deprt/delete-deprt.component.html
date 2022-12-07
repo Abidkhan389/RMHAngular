@@ -1,0 +1,72 @@
+
+<div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+   
+    <button type="button" class="pull-right btn btn-danger" aria-label="Close" rounded="true" (click)="bsModalRef.hide()">
+       <span aria-hidden="true">&times;</span>
+    
+    </button>
+    <div class="col-sm-2"></div>
+    <!-- <span class="space-width"></span> -->
+    <input type="text" placeholder="Enter Department ID"
+     class="form-control inputbox" #deptid aria-label="small"
+     aria-describedat="inputGroup-sizing-sm">
+     <span class="space-width"></span>
+     <button type="button" class="btn btn-primary" (click)="OnInput(deptid.value)">Submit</button>
+</div>
+<table class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>CurrentPageSize</th>
+            <th>PageNo</th>
+            <th>Message</th>
+            <th>RequestName</th>
+            <th>Token</th>
+            <th>TotalCount</th>
+            <th>IsError</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{DepartmentList.currentPageSize}}</td>
+            <td>{{DepartmentList.pageNo}}</td>
+            <td>{{DepartmentList.message}}</td>
+            <td>{{DepartmentList.requestName}}</td>
+            <td>{{DepartmentList.token}}</td>
+            <td>{{DepartmentList.totalCount}}</td>
+            <td>{{DepartmentList.isError}}</td>
+            
+        </tr>
+    </tbody>
+</table>
+
+
+<table class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hqid</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>DbtimeStamp</th>
+            
+        </tr>        
+    </thead>
+    <tbody>
+        <tr *ngIf="DepartmentList && DepartmentList.result">
+            <td>{{DepartmentList.result.id}}</td>
+            <td>{{DepartmentList.result.hqid}}</td>
+            <td>{{DepartmentList.result.code}}</td>
+            <td>{{DepartmentList.result.name}}</td>
+            <td>{{DepartmentList.result.dbtimeStamp}}</td>
+            <!-- <td>
+                <button type="button" class="btn btn-light mr-1">
+                    Edit
+                </button>
+                <button type="button" class="btn btn-light mr-1">
+                    Delete
+                </button>
+            </td> -->
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,126 @@
+<!-- <div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+    <button type="button" class="pull-right btn btn-danger" aria-label="Close" rounded="true" (click)="bsModalRef.hide()">
+       <span aria-hidden="true">&times;</span>
+    </button>
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #deptId1 aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter PageNumber" >
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #deptId2 aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter PageSize" >
+    <span class="space-width"></span>
+    <button type="button" class="btn btn-primary" (click) ="OnInput(deptId1.value,deptId2.value)">Submit</button> 
+    <span class="space-width"></span>
+ </div>
+ <table class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>CurrentPageSize</th>
+            <th>PageNo</th>
+            <th>Message</th>
+            <th>RequestName</th>
+            <th>Token</th>
+            <th>TotalCount</th>
+            <th>IsError</th>
+            <th>hasMoreRecords</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{departmentList.currentPageSize}}</td>
+            <td>{{departmentList.pageNo}}</td>
+            <td>{{departmentList.message}}</td>
+            <td>{{departmentList.requestName}}</td>
+            <td>{{departmentList.token}}</td>
+            <td>{{departmentList.totalCount}}</td>
+            <td>{{departmentList.isError}}</td>
+            <td>{{departmentList.hasMoreRecords}}</td>
+        </tr>
+    </tbody>
+</table>
+<table  class="table table-striped" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hqid</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>DbtimeStamp</th>
+        </tr>        
+    </thead>
+    <tbody>
+        <tr  *ngFor="let departmenttdata of departmentList.result">
+            <td>{{departmenttdata.id}}</td>
+            <td>{{departmenttdata.hqid}}</td>
+            <td>{{departmenttdata.code}}</td>
+            <td>{{departmenttdata.name}}</td>
+            <td>{{departmenttdata.dbtimeStamp}}</td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+<button type="button" class="btn btn-primary float-right m-2"
+ data-bs-toggle="modal" data-bs-target="#exampleModal"
+ (click)="CreateClick()"
+ data-backdrop="static" data-keyboard="false"
+ style="border-radius: 10px;">
+   Add Department
+  </button>
+<div class="container">
+    <table id="dtBasicExample" class="table table-hover" cellspacing="0" width="100%" *ngIf="showResult">
+        <thead>
+            <tr>
+                <th>Hqid</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let Departmentdata of departmentList | paginate:{id:'listing_paginatioin',
+                        itemsPerPage:5,
+                        currentPage:page,
+                        totalItems:totalRecords }">
+                <td>{{Departmentdata.hqid}}</td>
+                <td>{{Departmentdata.id}}</td>
+                <td>{{Departmentdata.name}}</td>
+                <td>{{Departmentdata.code}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger mr-1" (click)="openModal(template)">Delete</button>
+                    <ng-template #template>
+                        <div class="modal-body text-center">
+                            <p>Do you want to Delete?</p>
+                            
+                            <button type="button" class="btn btn-default" (click)="confrim(Departmentdata.id)">Yes</button>
+                            <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+                            
+                        </div>
+
+                    </ng-template>
+                    
+                    <a [routerLink]="['/department/edit/', Departmentdata.id]">
+                        <button type="button" class="btn btn-primary mr-1"  data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        data-backdrop="static" data-keyboard="false">
+                            Edit
+                        </button>
+                    </a>
+                    
+                </td>
+            </tr>
+        </tbody>
+        <!-- <script>
+            $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+            });
+            </script> -->
+    </table>
+    <div *ngIf="showpagenumber">
+        <pagination-controls id="listing_paginatioin" maxSize="6" directionLinks="true" (pageChange)="page = $event"></pagination-controls>  
+    </div>
+
+</div>
+

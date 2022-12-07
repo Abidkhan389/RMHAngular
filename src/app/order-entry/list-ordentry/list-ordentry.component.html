@@ -1,0 +1,87 @@
+<!-- <div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+    <button type="button" class="pull-right btn btn-danger " aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #catgpagenum aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Number">
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #catgpagesize aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Size">
+    <span class="space-width"></span>
+    <button type="button" class="btn btn-primary" (click)="OnInput(catgpagenum.value,catgpagesize.value)">Submit</button>
+    <span class="space-width"></span>
+</div> -->
+<button type="button" class="btn btn-primary float-right m-2"
+ data-bs-toggle="modal" data-bs-target="#exampleModal"
+ (click)="CreateClick()"
+ data-backdrop="static" data-keyboard="false"
+ style="border-radius: 10px;">
+   Add Department
+</button> 
+<table  class="table  table-hover" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>Cost</th>
+            <th>Store ID</th>
+            <th>ID</th>
+            <th>Order ID</th>
+            <th>Item ID</th>
+            <th>Full Price</th>
+            <th>Price Source</th>
+            <th>Price</th>
+            <th>Quantity OnOrder</th>
+            <th>SalesRepId</th>
+            <th>Taxable</th>
+            <th>DetailId</th>
+            <th>Description</th>
+            <th>QuantityRtd</th>
+            <th>LastUpdated</th>
+            <th>Comment</th>
+            <th>DiscountReasonCodeId</th>
+            <th>ReturnReasonCodeId</th>
+            <th>TaxChangeReasonCodeId</th>
+            <th>TransactionTime</th>
+            <th>IsAddMoney</th>
+            <th>VoucherId</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+   <tbody>
+       <tr   *ngFor="let orderentrytdata of orderentryList">
+          <td>{{orderentrytdata.cost}}</td>
+          <td>{{orderentrytdata.storeId}}</td>
+          <td>{{orderentrytdata.id}}</td>
+          <td>{{orderentrytdata.orderId}}</td>
+          <td>{{orderentrytdata.itemId}}</td>
+          <td>{{orderentrytdata.fullPrice}}</td>
+          <td>{{orderentrytdata.priceSource}}</td>
+          <td>{{orderentrytdata.price}}</td>
+          <td>{{orderentrytdata.quantityOnOrder}}</td>
+          <td>{{orderentrytdata.salesRepId}}</td>
+          <td>{{orderentrytdata.taxable}}</td>
+          <td>{{orderentrytdata.detailId}}</td>
+          <td>{{orderentrytdata.description}}</td>
+          <td>{{orderentrytdata.quantityRtd}}</td>
+          <td>{{orderentrytdata.lastUpdated}}</td>
+          <td>{{orderentrytdata.comment}}</td>
+          <td>{{orderentrytdata.discountReasonCodeId}}</td>
+          <td>{{orderentrytdata.returnReasonCodeId}}</td>
+          <td>{{orderentrytdata.taxChangeReasonCodeId}}</td>
+          <td>{{orderentrytdata.transactionTime}}</td>
+          <td>{{orderentrytdata.isAddMoney}}</td>
+          <td>{{orderentrytdata.voucherId}}</td>
+          <td>
+            <button type="button" class="btn btn-danger mr-1 mb-1" >
+                Delete
+            </button>
+            <button type="button" class="btn btn-primary mr-1 mt-1">
+                Edit
+            </button>
+          </td>
+       </tr>
+   </tbody>
+</table>
+
+

@@ -1,0 +1,94 @@
+<div class="input-group input-group-sm mb-3">
+    <span  class="space-width2"></span>
+    <button type="button" class="pull-right btn btn-danger" aria-label="close"  (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="col-sm-2"></div>
+    <span class="space-width"></span>
+    <input type="text" class="form-control inputbox" style="background-color: rgb(233, 206, 206); color: rgb(15, 11, 11); " #orderid  aria-label="small"  aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter ORder Entry ID" >
+    <span class="sapce-width"></span>
+    <button type="button" class="btn btn-primary" style=" border-radius: 15px; margin: 1px auto; display: block;width: 100px;" (click)="OnInput(orderid.value)">Submit</button>
+</div>
+<table class="table table-hover" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>CurrentPageSize</th>
+            <th>PageNo</th>
+            <th>Message</th>
+            <th>RequestName</th>
+            <th>Token</th>
+            <th>TotalCount</th>
+            <th>IsError</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{OrderEntryList.currentPageSize}}</td>
+            <td>{{OrderEntryList.pageNo}}</td>
+            <td>{{OrderEntryList.message}}</td>
+            <td>{{OrderEntryList.requestName}}</td>
+            <td>{{OrderEntryList.token}}</td>
+            <td>{{OrderEntryList.totalCount}}</td>
+            <td>{{OrderEntryList.isError}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-hover" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>Cost</th>
+            <th>Store ID</th>
+            <th>ID</th>
+            <th>Order ID</th>
+            <th>Item ID</th>
+            <th>Full Price</th>
+            <th>Price Source</th>
+            <th>Price</th>
+            <th>Quantity OnOrder</th>
+            <th>SalesRepId</th>
+            <th>Taxable</th>
+            <th>DetailId</th>
+            <th>SalesRepId</th>
+            <th>SalesRepId</th>
+            <th>SalesRepId</th>
+            <th>Description</th>
+            <th>LastUpdated</th>
+            <th>Comment</th>
+            <th>DiscountReasonCodeId</th>
+            <th>ReturnReasonCodeId</th>
+            <th>TaxChangeReasonCodeId</th>
+            <th>TransactionTime</th>
+            <th>IsAddMoney</th>
+            <th>VoucherId</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="OrderEntryList && OrderEntryList.result">
+            <td>{{OrderEntryList.result.cost}}</td>
+            <td>{{OrderEntryList.result.storeId}}</td>
+            <td>{{OrderEntryList.result.id}}</td>
+            <td>{{OrderEntryList.result.orderId}}</td>
+            <td>{{OrderEntryList.result.itemId}}</td>
+            <td>{{OrderEntryList.result.fullPrice}}</td>
+            <td>{{OrderEntryList.result.priceSource}}</td>
+            <td>{{OrderEntryList.result.price}}</td>
+            <td>{{OrderEntryList.result.quantityOnOrder}}</td>
+            <td>{{OrderEntryList.result.salesRepId}}</td>
+            <td>{{OrderEntryList.result.taxable}}</td>
+            <td>{{OrderEntryList.result.detailId}}</td>
+            <td>{{OrderEntryList.result.description}}</td>
+            <td>{{OrderEntryList.result.quantityRtd}}</td>
+            <td>{{OrderEntryList.result.lastUpdated}}</td>
+            <td>{{OrderEntryList.result.comment}}</td>
+            <td>{{OrderEntryList.result.discountReasonCodeId}}</td>
+            <td>{{OrderEntryList.result.returnReasonCodeId}}</td>
+            <td>{{OrderEntryList.result.taxChangeReasonCodeId}}</td>
+            <td>{{OrderEntryList.result.transactionTime}}</td>
+            <td>{{OrderEntryList.result.isAddMoney}}</td>
+            <td>{{OrderEntryList.result.voucherId}}</td>
+        </tr>
+    </tbody>
+</table>
+
+

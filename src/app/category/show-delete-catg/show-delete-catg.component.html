@@ -1,0 +1,85 @@
+<div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+    <button type="button" class="pull-right btn btn-danger " aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #catgpagenum aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Number">
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #catgpagesize aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Size">
+    <span class="space-width"></span>
+     <input type="text" class="form-control" #catgname aria-label="small" aria-describedby="inputGroup-sizing-sm"
+        placeholder="Enter Name" >
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #catgcode aria-label="small" aria-describedby="inputGroup-sizing-sm"
+        placeholder="Enter Code" >
+    <span class="space-width"></span> 
+    <button type="button" class="btn btn-primary" (click)  ="OnInput(catgpagenum.value,catgpagesize.value,catgname.value,catgcode.value)">Submit</button> 
+   <span class="space-width"></span>
+</div> 
+<!-- <div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+    <button type="button" class="pull-right btn btn-danger " aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #catgpagenum aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Number">
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #catgpagesize aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Size">
+    <span class="space-width"></span>
+    <button type="button" class="btn btn-primary" (click)="OnInput(catgpagenum.value,catgpagesize.value)">Submit</button>
+    <span class="space-width"></span>
+</div> -->
+<table  class="table table-hover" *ngIf="showResult">
+  <thead>
+      <tr>
+          <th>CurrentPageSize</th>
+          <th>PageNo</th>
+          <th>Message</th>
+          <th>RequestName</th>
+          <th>Token</th>
+          <th>TotalCount</th>
+          <th>IsError</th>
+          <th>hasMoreRecords</th>
+      </tr>        
+  </thead>
+  <tbody>
+      <tr>
+          <td>{{categoryList.currentPageSize}}</td>
+          <td>{{categoryList.pageNo}}</td>
+          <td>{{categoryList.message}}</td>
+          <td>{{categoryList.requestName}}</td>
+          <td>{{categoryList.token}}</td>
+          <td>{{categoryList.totalCount}}</td>
+          <td>{{categoryList.isError}}</td>
+          <td>{{categoryList.hasMoreRecords}}</td>
+      </tr>
+  </tbody>
+</table>
+<table  class="table table-hover" *ngIf="showResult">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Hqid</th>
+          <th>Department ID</th>
+          <th>Name</th>
+          <th>Code</th>
+          <th>DbtimeStamp</th>
+      </tr>        
+  </thead>
+  <tbody>
+      <tr  *ngFor="let categorydata of categoryList.result">
+          <td>{{categorydata.id}}</td>
+          <td>{{categorydata.hqid}}</td>
+          <td>{{categorydata.departmentId}}</td>
+          <td>{{categorydata.name}}</td>
+          <td>{{categorydata.code}}</td>
+          <td>{{categorydata.dbtimeStamp}}</td>
+      </tr>
+  </tbody>
+</table>
+

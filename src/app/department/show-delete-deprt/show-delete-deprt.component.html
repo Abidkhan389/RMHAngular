@@ -1,0 +1,67 @@
+<div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+    <button type="button" class="pull-right btn btn-danger " aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #daptpagenum aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Number">
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #daptpagesize aria-label="small" aria-describedby="inputGroup-sizing-sm"
+    placeholder="Enter Page Size">
+    <span class="space-width"></span>
+     <input type="text" class="form-control" #daptname aria-label="small" aria-describedby="inputGroup-sizing-sm"
+        placeholder="Enter Name" >
+    <span class="space-width"></span>
+    <input type="text" class="form-control" #daptcode aria-label="small" aria-describedby="inputGroup-sizing-sm"
+        placeholder="Enter Code" >
+    <span class="space-width"></span> 
+    <button type="button" class="btn btn-primary" (click)  ="OnInput(daptpagenum.value,daptpagesize.value,daptname.value,daptcode.value)">Submit</button> 
+   <span class="space-width"></span>
+</div>
+<table  class="table table-striped" *ngIf="showResult">
+  <thead>
+      <tr>
+          <th>CurrentPageSize</th>
+          <th>PageNo</th>
+          <th>Message</th>
+          <th>RequestName</th>
+          <th>Token</th>
+          <th>TotalCount</th>
+          <th>IsError</th>
+          <th>hasMoreRecords</th>
+      </tr>        
+  </thead>
+  <tbody>
+      <tr>
+          <td>{{departmentList.currentPageSize}}</td>
+          <td>{{departmentList.pageNo}}</td>
+          <td>{{departmentList.message}}</td>
+          <td>{{departmentList.requestName}}</td>
+          <td>{{departmentList.token}}</td>
+          <td>{{departmentList.totalCount}}</td>
+          <td>{{departmentList.isError}}</td>
+          <td>{{departmentList.hasMoreRecords}}</td>
+      </tr>
+  </tbody>
+</table>
+<table  class="table table-striped" *ngIf="showResult">
+  <thead>
+      <tr>
+          <th>ID</th>
+          <th>Hqid</th>
+          <th>Name</th>
+          <th>Code</th>
+          <th>DbtimeStamp</th>
+      </tr>        
+  </thead>
+  <tbody>
+      <tr  *ngFor="let departmenttdata of departmentList.result">
+          <td>{{departmenttdata.id}}</td>
+          <td>{{departmenttdata.hqid}}</td>
+          <td>{{departmenttdata.name}}</td>
+          <td>{{departmenttdata.code}}</td>
+          <td>{{departmenttdata.dbtimeStamp}}</td>
+      </tr>
+  </tbody>
+</table>

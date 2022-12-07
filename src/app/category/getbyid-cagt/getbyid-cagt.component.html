@@ -1,0 +1,68 @@
+<div class="input-group input-group-sm mb-3">
+    <span class="space-width2"></span>
+    <!-- <h4 class="modal-title pull-right">{{title}}</h4> -->
+    <!-- <button type="button" class="btn btn-primary" >{{title}}</button>  -->
+    <button type="button" class="pull-right btn btn-danger" aria-label="Close" rounded="true" (click)="bsModalRef.hide()">
+       <span aria-hidden="true">&times;</span>
+          <!-- Get By ID <h6 aria-hidden="true">&times;</h6> -->
+    </button>
+   <div class="col-sm-2"></div>
+    <span class="space-width"></span>
+   <input type="text"  class="form-control inputbox" #deptId aria-label="small" aria-describedby="inputGroup-sizing-sm"
+   placeholder="Enter Department ID" >
+
+   <span class="space-width"></span>
+   <button type="button" class="btn btn-primary" (click) ="OnInput(deptId.value)">Submit</button> 
+</div>
+<table class="table table-hover" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>CurrentPageSize</th>
+            <th>PageNo</th>
+            <th>Message</th>
+            <th>RequestName</th>
+            <th>Token</th>
+            <th>IsError</th>
+            <th>TotalCount</th>
+            <th>hasMoreRecords</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{CtegoryList.currentPageSize}}</td>
+            <td>{{CtegoryList.pageNo}}</td>
+            <td>{{CtegoryList.message}}</td>
+            <td>{{CtegoryList.requestName}}</td>
+            <td>{{CtegoryList.token}}</td>
+            <td>{{CtegoryList.isError}}</td>
+            <td>{{CtegoryList.totalCount}}</td>
+            <td>{{CtegoryList.hasMoreRecords}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-hover" *ngIf="showResult">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hqid</th>
+            <th>Department Id</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>DbtimeStamp</th>
+            
+        </tr>        
+    </thead>
+    <tbody>
+        <tr *ngIf="CtegoryList && CtegoryList.result">
+            <td>{{CtegoryList.result.id}}</td>
+            <td>{{CtegoryList.result.hqid}}</td>
+            <td>{{CtegoryList.result.departmentId}}</td>
+            <td>{{CtegoryList.result.name}}</td>
+            <td>{{CtegoryList.result.code}}</td>
+            <td>{{CtegoryList.result.dbtimeStamp}}</td>
+           
+        </tr>
+    </tbody>
+</table>
+

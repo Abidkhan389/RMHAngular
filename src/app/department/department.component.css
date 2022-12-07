@@ -1,0 +1,14 @@
+.popup-width-height{
+    max-width: 400px !important;
+    max-height: 400px !important;
+}
+
+/* .modal-lg {
+    max-width: 100px !important;
+} */
+@media (min-width: 992px) {.modal-lg {max-width: 1200px !important; width: 1200px;}}  
+
+ @media (min-width: 1200px) {.modal-lg {max-width: 1200px !important; width: 1200px;}}
+.myCustomModalClass .modal-dialog {
+    max-width: 565px;
+  }
